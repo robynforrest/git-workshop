@@ -3,7 +3,6 @@
 
 *Created by Chris Grandin, February 2014*
 
-Hello World!
 git-workshop is a repository for learning how to use git version control.
 Also included are examples for using *Latex* and the R package *knitr* to apply version control to documents
 which are to be edited by more than one person, working collaboratively.
@@ -20,8 +19,6 @@ GitHub *requires* Microsoft .NET 4.5.1 as of February 2014.
 
 1. If you have a .NET version less than 4.5 ([Check version](https://github.com/downloads/shanselman/SmallestDotNet/CheckForDotNet45.exe "Which .NET version is on my machine?")), then upgrade it: <a href="http://go.microsoft.com/fwlink/p/?LinkId=310158" target="_blank">Microsoft .NET 4.5.1</a>.
 2. <a href="http://windows.github.com" target="_blank">GitHub for Windows</a>
-3. <a href="http://mirrors.ctan.org/systems/win32/miktex/setup/basic-miktex-2.9.5105-x64.exe" target="_blank">Miktex typesetting software</a>
-4. The knitr package for R - install.packages("knitr")
 
 ---
 
@@ -35,6 +32,7 @@ and change your *default storage directory* to something simple that you will be
 
 Open the Git Shell, (not the GitHub application). The shortcut should be
 **C:\Users\your-computer-user-name\AppData\Local\GitHub\GitHub.appref-ms --open-shell**
+but with **your-computer-user-name** replaced with your user account name.
 
 Note your starting directory, this is where your files will be. It should be the same as the one you entered into the GitHub application in the steps above.
 
@@ -64,12 +62,15 @@ Type the following to clone your repository onto your local machine:
       git branch -D NAME                <Forcibly delete the branch called NAME>
       git log branchA ^branchB          <show log of commits in branchA but not in branchB>
       git log master ^origin/master     <Show difference between local master and origin/master (latest copy of remote)>
+      git push origin NAME              <Add the local branch NAME to the remote>
       git push origin --delete NAME     <Delete the branch NAME from the remote>
       git reset --soft HEAD~N           <Undo commits safely. Move back N commits, keeping changes from last N-1 commits>
       git reset --hard HEAD~N           <Move back N commits, destroying changes made in latest N-1 commits>
       git log --diff-filter=D --summary <Shows all commits in which files were deleted>
       git checkout -- FILENAME          <Undo an unstaged/uncommitted change to FILENAME, i.e. get the file back if deleted>
       git checkout --patch B FILE       <Merge changes to FILE from branch B into your current branch>
+      git checkout -b NAME remote/NAME  <Create a local branch NAME from the remote NAME that you fetched>
+      git checkout -p NAME FILENAME     <Merge the file FILENAME from the branch NAME into your current branch>
 ## Useful Git aliases
       git r                             <View remote URLs for the project, same as 'git remote -v'>
       git s                             <View status of the repository, same as 'git status'>
@@ -86,6 +87,8 @@ Type the following to clone your repository onto your local machine:
       git lds                           <Show one-line commits in a colored format>
       git ld                            <Show one-line commits with reletive times in a colored format>
       git wdiff                         <Highlight individual words when diffing, same as 'idiff --word-diff=plain'>
+
+## Resources
 
 This is a great resource for understanding git: <a href="http://git-scm.com/documentation" target="_blank">git-scm</a>
 
